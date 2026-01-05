@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weimar Labs | Ethical Hacking Collective</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #00ff41;
+            --dark-bg: #0a0a0a;
+            --card-bg: #141414;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .mono { font-family: 'Fira Code', monospace; }
+        .neon-text { color: var(--neon-green); text-shadow: 0 0 10px rgba(0, 255, 65, 0.3); }
+        .neon-border { border-color: rgba(0, 255, 65, 0.2); }
+        .neon-border:hover { border-color: var(--neon-green); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1); }
+        .terminal-header::before {
+            content: "> ";
+            color: var(--neon-green);
+        }
+        .glass {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .section-fade {
+            transition: all 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="selection:bg-green-500/30 selection:text-green-400">
+
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="mono font-bold text-xl tracking-tighter uppercase">Weimar<span class="neon-text">Labs</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 mono text-sm font-medium">
+                <a href="#who-we-are" class="hover:text-green-400 transition">WHO_WE_ARE</a>
+                <a href="#what-we-do" class="hover:text-green-400 transition">WHAT_WE_DO</a>
+                <a href="#news" class="hover:text-green-400 transition">NEWS</a>
+                <a href="#blog" class="hover:text-green-400 transition">BLOG</a>
+            </div>
+            <button onclick="document.getElementById('contact-modal').classList.remove('hidden')" class="mono border border-green-500/50 text-green-500 px-4 py-1 rounded hover:bg-green-500 hover:text-black transition duration-300">
+                INIT_CONNECT
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+            <div class="grid grid-cols-12 gap-4 h-full w-full">
+                <!-- Decorative scanlines or grid -->
+                <div class="col-span-1 border-r border-green-500/20"></div><div class="col-span-1 border-r border-green-500/20"></div>
+                <div class="col-span-1 border-r border-green-500/20"></div><div class="col-span-1 border-r border-green-500/20"></div>
+            </div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6">
+            <h1 class="mono text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+                SECURE THE <span class="neon-text">FUTURE.</span><br>
+                EXPOSE THE <span class="text-white/40">VULNERABLE.</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl mb-10 leading-relaxed">
+                An international collective of security researchers and ethical hackers dedicated to defensive excellence and transparency.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#what-we-do" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-green-400 transition w-full md:w-auto">Exploration Path</a>
+                <a href="https://github.com/weimarlabs" target="_blank" class="mono text-green-500 border-b border-green-500/30 hover:border-green-500 pb-1 transition">view_our_repos</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Who We Are -->
+    <section id="who-we-are" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="terminal-header mono text-2xl font-bold mb-8 neon-text">WHO_WE_ARE</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Founded in the spirit of the Weimar era's radical intellectualism, Weimar Labs is a non-profit collective of 24 core researchers. We operate at the intersection of privacy rights, network security, and open-source advocacy.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    We aren't just a firm; we are a community. Our members come from backgrounds in cryptography, linguistics, and systems engineering, united by a singular focus on protecting the digital commons.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass p-6 rounded-lg text-center border-t-2 border-green-500">
+                    <div class="text-3xl font-bold mb-1">24</div>
+                    <div class="mono text-xs text-gray-500 uppercase">Members</div>
+                </div>
+                <div class="glass p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold mb-1">150+</div>
+                    <div class="mono text-xs text-gray-500 uppercase">CVEs Filed</div>
+                </div>
+                <div class="glass p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold mb-1">100%</div>
+                    <div class="mono text-xs text-gray-500 uppercase">Ethical</div>
+                </div>
+                <div class="glass p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold mb-1">6</div>
+                    <div class="mono text-xs text-gray-500 uppercase">Global Hubs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- What We Do -->
+    <section id="what-we-do" class="py-24 bg-[#0d0d0d]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="terminal-header mono text-2xl font-bold mb-16 neon-text">WHAT_WE_DO</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="neon-border border p-8 rounded-xl transition bg-black/40">
+                    <div class="mb-6 opacity-80">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="mono text-xl mb-4">Penetration Testing</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Deep-dive assessments of infrastructure to identify and patch vulnerabilities before they are exploited by malicious actors.</p>
+                </div>
+                <div class="neon-border border p-8 rounded-xl transition bg-black/40">
+                    <div class="mb-6 opacity-80">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="mono text-xl mb-4">Privacy Advocacy</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Building and supporting tools that encrypt communications and protect the anonymity of journalists and whistleblowers.</p>
+                </div>
+                <div class="neon-border border p-8 rounded-xl transition bg-black/40">
+                    <div class="mb-6 opacity-80">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="mono text-xl mb-4">OSS Research</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Contributing to the safety of the internet's backbone through constant auditing of critical open-source software libraries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- News & Blog -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-16">
+            <!-- News Column -->
+            <div id="news" class="lg:col-span-1">
+                <h2 class="terminal-header mono text-xl font-bold mb-8 neon-text">LATEST_INTEL</h2>
+                <div class="space-y-6">
+                    <article class="border-l border-green-500/30 pl-4 py-2 hover:bg-white/5 transition cursor-pointer">
+                        <time class="mono text-xs text-gray-600 block mb-1">2023.10.12</time>
+                        <h4 class="font-semibold text-sm">Discovered 0-day in mainstream CMS.</h4>
+                        <p class="text-xs text-gray-500 mt-2">Vendor notified, patch pending release...</p>
+                    </article>
+                    <article class="border-l border-green-500/30 pl-4 py-2 hover:bg-white/5 transition cursor-pointer">
+                        <time class="mono text-xs text-gray-600 block mb-1">2023.09.28</time>
+                        <h4 class="font-semibold text-sm">Weimar Labs joins the Open Trust Alliance.</h4>
+                        <p class="text-xs text-gray-500 mt-2">Expanding our reach in the EU sector...</p>
+                    </article>
+                    <article class="border-l border-green-500/30 pl-4 py-2 hover:bg-white/5 transition cursor-pointer">
+                        <time class="mono text-xs text-gray-600 block mb-1">2023.09.15</time>
+                        <h4 class="font-semibold text-sm">DEF CON 31 Workshop wrap-up.</h4>
+                        <p class="text-xs text-gray-500 mt-2">All materials now available on our GitHub.</p>
+                    </article>
+                </div>
+            </div>
+
+
+            <!-- Blog Column -->
+            <div id="blog" class="lg:col-span-2">
+                <h2 class="terminal-header mono text-xl font-bold mb-8 neon-text">LOG_ENTRIES</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="glass overflow-hidden rounded-xl group hover:transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-40 bg-gray-800 flex items-center justify-center mono text-gray-600 italic">
+                            [Image: Packet_Analysis]
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] mono bg-green-500/10 text-green-500 px-2 py-1 rounded">RESEARCH</span>
+                            <h4 class="font-bold mt-4 mb-2 group-hover:text-green-400 transition">Deconstructing the Shadow Protocol</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed">How we identified anomalies in the latest P2P encryption standards and what it means for privacy.</p>
+                        </div>
+                    </div>
+                    <div class="glass overflow-hidden rounded-xl group hover:transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-40 bg-gray-800 flex items-center justify-center mono text-gray-600 italic">
+                            [Image: Social_Engineering]
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[10px] mono bg-blue-500/10 text-blue-400 px-2 py-1 rounded">ETHICS</span>
+                            <h4 class="font-bold mt-4 mb-2 group-hover:text-green-400 transition">The Human Firewall: 2024 Trends</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed">Why social engineering remains the #1 entry point and how organizations can evolve their culture.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button class="mono text-xs uppercase tracking-widest text-gray-500 hover:text-white transition">Load_More_Entries_</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="mono font-bold text-lg mb-2">WEIMAR<span class="neon-text">LABS</span></div>
+                <p class="text-gray-600 text-xs">© 2024 Weimar Labs. All rights reserved. Encrypted for your protection.</p>
+            </div>
+            <div class="flex space-x-6 mono text-xs text-gray-500">
+                <a href="#" class="hover:text-white transition">PGP_KEYS</a>
+                <a href="#" class="hover:text-white transition">MASTODON</a>
+                <a href="#" class="hover:text-white transition">ONION_SITE</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Contact Modal (Hidden) -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] flex items-center justify-center px-4 hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" onclick="document.getElementById('contact-modal').classList.add('hidden')"></div>
+        <div class="glass relative max-w-md w-full p-8 rounded-2xl border border-green-500/20">
+            <h3 class="mono text-xl mb-6 neon-text">ESTABLISH_CONNECTION</h3>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Transmission Sent. (Simulation)'); document.getElementById('contact-modal').classList.add('hidden')">
+                <div>
+                    <label class="mono text-[10px] uppercase text-gray-500 block mb-1">Identity</label>
+                    <input type="text" placeholder="Alias or Org Name" class="w-full bg-black/50 border border-white/10 rounded px-4 py-2 focus:border-green-500 outline-none text-sm mono">
+                </div>
+                <div>
+                    <label class="mono text-[10px] uppercase text-gray-500 block mb-1">Encrypted Payload (Message)</label>
+                    <textarea rows="4" placeholder="Request pen-test or inquiry..." class="w-full bg-black/50 border border-white/10 rounded px-4 py-2 focus:border-green-500 outline-none text-sm mono"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-green-500 text-black mono font-bold py-3 rounded hover:bg-green-400 transition">SEND_TRANSMISSION</button>
+            </form>
+            <button onclick="document.getElementById('contact-modal').classList.add('hidden')" class="mt-4 w-full text-xs mono text-gray-600 hover:text-white">ABORT_CONNECTION</button>
+        </div>
+    </div>
+
+
+    <script>
+        // Simple scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        });
+
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
