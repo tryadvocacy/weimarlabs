@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weimar Labs | Ethical Hacking Collective</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- IBM Plex Sans is the core of Carbon Design System -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Carbon Gray 100 Theme Colors */
+            --cds-background: #161616;
+            --cds-layer-01: #262626;
+            --cds-layer-02: #393939;
+            --cds-field-01: #262626;
+            --cds-text-primary: #f4f4f4;
+            --cds-text-secondary: #c6c6c6;
+            --cds-link-primary: #78a9ff;
+            --cds-button-primary: #0f62fe;
+            --cds-button-primary-hover: #0353e9;
+            --cds-border-interactive: #4589ff;
+            --cds-focus: #ffffff;
+        }
+
+        body {
+            background-color: var(--cds-background);
+            color: var(--cds-text-primary);
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+
+        /* Carbon Header (Shell) */
+        .cds-header {
+            height: 3rem;
+            background-color: var(--cds-background);
+            border-bottom: 1px solid var(--cds-layer-02);
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Carbon Button Styles */
+        .cds-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            height: 3rem;
+            font-size: 0.875rem;
+            transition: background 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+            cursor: pointer;
+        }
+        .cds-btn-primary {
+            background-color: var(--cds-button-primary);
+            color: white;
+            min-width: 12rem;
+        }
+        .cds-btn-primary:hover { background-color: var(--cds-button-primary-hover); }
+
+        .cds-btn-ghost {
+            color: var(--cds-link-primary);
+            border: 1px solid transparent;
+        }
+        .cds-btn-ghost:hover { background-color: var(--cds-layer-01); }
+
+        /* Tile/Card System */
+        .cds-tile {
+            background-color: var(--cds-layer-01);
+            padding: 1rem;
+            border: 1px solid transparent;
+            transition: background 70ms ease;
+        }
+        .cds-tile:hover { background-color: var(--cds-layer-02); }
+
+        /* Grid Helper */
+        .carbon-grid {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: 2px; /* Carbon uses subtle gaps or specific padding */
+        }
+
+        section { padding: 4rem 1rem; }
+        
+        h1 { font-size: 3.375rem; font-weight: 300; line-height: 1.2; }
+        h2 { font-size: 1.75rem; font-weight: 400; margin-bottom: 2rem; }
+        .label-01 { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.32px; color: var(--cds-text-secondary); margin-bottom: 0.5rem; display: block; }
+        
+        .type-mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.875rem; }
+
+        /* Modal specific to Carbon */
+        .cds-modal-container {
+            background-color: var(--cds-layer-01);
+            width: 100%;
+            max-width: 35rem;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / UI Shell -->
+    <header class="cds-header">
+        <div class="flex items-center w-full max-w-7xl mx-auto">
+            <a href="#" class="text-sm font-semibold tracking-wider flex items-center">
+                WEIMAR<span class="font-normal opacity-70 ml-1">LABS</span>
+            </a>
+            <nav class="ml-12 hidden md:flex space-x-1 h-full">
+                <a href="#who-we-are" class="px-4 py-3 text-sm hover:bg-[#262626] transition-colors border-b-2 border-transparent hover:border-[#4589ff]">Who we are</a>
+                <a href="#what-we-do" class="px-4 py-3 text-sm hover:bg-[#262626] transition-colors border-b-2 border-transparent hover:border-[#4589ff]">What we do</a>
+                <a href="#news" class="px-4 py-3 text-sm hover:bg-[#262626] transition-colors border-b-2 border-transparent hover:border-[#4589ff]">News</a>
+                <a href="#blog" class="px-4 py-3 text-sm hover:bg-[#262626] transition-colors border-b-2 border-transparent hover:border-[#4589ff]">Blog</a>
+            </nav>
+            <div class="ml-auto">
+                <button onclick="toggleModal(true)" class="cds-btn-ghost text-sm px-4">Contact researcher</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-24 border-b border-[#262626]">
+        <div class="max-w-7xl mx-auto px-4 lg:grid lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-8">
+                <span class="type-mono text-blue-400 mb-4 block">SECURITY_COLLECTIVE_v2.5</span>
+                <h1>Engineering a <span class="font-semibold">resilient digital commons</span> through offensive research.</h1>
+                <p class="text-xl text-gray-400 mt-8 mb-12 max-w-2xl font-light">
+                    Weimar Labs is an independent collective of security professionals providing high-assurance auditing and privacy-preserving tools.
+                </p>
+                <div class="flex flex-wrap gap-px">
+                    <button class="cds-btn cds-btn-primary">
+                        View services 
+                        <svg class="ml-4 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
+                    </button>
+                    <button class="cds-btn cds-btn-ghost bg-[#262626] ml-px">
+                        Documentation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are -->
+    <section id="who-we-are" class="bg-[#121212]">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-12 gap-8">
+            <div class="md:col-span-4">
+                <span class="label-01">OVERVIEW</span>
+                <h2 class="text-white">Who we are</h2>
+            </div>
+            <div class="md:col-span-8">
+                <p class="text-lg font-light leading-relaxed text-[#c6c6c6] mb-12">
+                    Operating as a decentralized non-profit, we leverage radical intellectual transparency to bridge the gap between academic research and field-ready security implementation.
+                </p>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#262626] border border-[#262626]">
+                    <div class="bg-[#161616] p-6">
+                        <span class="type-mono text-xs text-blue-400">CORE_MEMBERS</span>
+                        <div class="text-3xl mt-2 font-light">24</div>
+                    </div>
+                    <div class="bg-[#161616] p-6">
+                        <span class="type-mono text-xs text-blue-400">CVE_AUTHORED</span>
+                        <div class="text-3xl mt-2 font-light">150+</div>
+                    </div>
+                    <div class="bg-[#161616] p-6">
+                        <span class="type-mono text-xs text-blue-400">FOUNDED</span>
+                        <div class="text-3xl mt-2 font-light">2018</div>
+                    </div>
+                    <div class="bg-[#161616] p-6">
+                        <span class="type-mono text-xs text-blue-400">OSS_PROJECTS</span>
+                        <div class="text-3xl mt-2 font-light">12</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section id="what-we-do">
+        <div class="max-w-7xl mx-auto px-4">
+            <span class="label-01">CAPABILITIES</span>
+            <h2 class="mb-12">Our area of focus</h2>
+            <div class="grid md:grid-cols-3 gap-px bg-[#393939]">
+                <div class="cds-tile h-full flex flex-col justify-between min-h-[16rem]">
+                    <div>
+                        <h4 class="text-lg mb-4">Offensive Security</h4>
+                        <p class="text-sm text-[#c6c6c6] font-light">Red teaming and penetration testing for infrastructure that supports high-value public data.</p>
+                    </div>
+                    <div class="mt-auto pt-8">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                </div>
+                <div class="cds-tile h-full flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-lg mb-4">Protocol Auditing</h4>
+                        <p class="text-sm text-[#c6c6c6] font-light">Mathematical and logic-based verification of cryptographic protocols and zero-knowledge systems.</p>
+                    </div>
+                    <div class="mt-auto pt-8">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                </div>
+                <div class="cds-tile h-full flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-lg mb-4">Civic Tech Support</h4>
+                        <p class="text-sm text-[#c6c6c6] font-light">Defending NGOs and democratic institutions against state-sponsored digital threats.</p>
+                    </div>
+                    <div class="mt-auto pt-8">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Blog (Carbon Style) -->
+    <section id="news" class="bg-[#121212]">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-12 gap-12">
+            <!-- News Feed -->
+            <div class="lg:col-span-4">
+                <span class="label-01">RECENT NEWS</span>
+                <div class="mt-8 space-y-px bg-[#262626]">
+                    <div class="p-4 bg-[#161616]">
+                        <span class="type-mono text-[10px] text-gray-500">OCT 12, 2023</span>
+                        <p class="text-sm mt-2 hover:text-blue-400 cursor-pointer">Advisory: Critical bypass found in OpenSSL wrapper.</p>
+                    </div>
+                    <div class="p-4 bg-[#161616]">
+                        <span class="type-mono text-[10px] text-gray-500">SEP 28, 2023</span>
+                        <p class="text-sm mt-2 hover:text-blue-400 cursor-pointer">Weimar Labs partners with the Freedom of Press Foundation.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Posts -->
+            <div id="blog" class="lg:col-span-8">
+                <span class="label-01">BLOG ENTRIES</span>
+                <div class="grid md:grid-cols-2 gap-px bg-[#262626] mt-8">
+                    <div class="cds-tile bg-[#161616] p-8">
+                        <span class="type-mono text-xs text-blue-400">RESEARCH</span>
+                        <h3 class="text-xl font-normal mt-4 mb-4">Post-Quantum Cryptography in the Browser</h3>
+                        <p class="text-sm text-gray-400 font-light mb-8">An exploration of Lattice-based key exchange performance metrics in modern V8 engines.</p>
+                        <a href="#" class="text-blue-400 text-sm flex items-center group">
+                            Read entry <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
+                        </a>
+                    </div>
+                    <div class="cds-tile bg-[#161616] p-8">
+                        <span class="type-mono text-xs text-blue-400">ANALYSIS</span>
+                        <h3 class="text-xl font-normal mt-4 mb-4">The Ethics of Zero-Day Markets</h3>
+                        <p class="text-sm text-gray-400 font-light mb-8">Discussing the gray-market transition and the legal frameworks protecting independent researchers.</p>
+                        <a href="#" class="text-blue-400 text-sm flex items-center group">
+                            Read entry <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#161616] pt-12 pb-24 px-4 border-t border-[#393939]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div>
+                <p class="text-sm font-semibold mb-2">WEIMAR LABS</p>
+                <p class="text-xs text-gray-500">Established 2018. Independent Collective.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div>
+                    <span class="label-01">COLLECTIVE</span>
+                    <ul class="text-xs space-y-2 mt-4 text-[#c6c6c6]">
+                        <li><a href="#" class="hover:text-blue-400">Manifesto</a></li>
+                        <li><a href="mailto:weimarlabs@proton.me" class="hover:text-blue-400">Mail</a></li>
+                        <li><a href="#" class="hover:text-blue-400">Impact Report</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="label-01">RESOURCES</span>
+                    <ul class="text-xs space-y-2 mt-4 text-[#c6c6c6]">
+                        <li><a href="#" class="hover:text-blue-400">Advisories</a></li>
+                        <li><a href="#" class="hover:text-blue-400">Tooling</a></li>
+                        <li><a href="weimar-shop.com" class="hover:text-blue-400">Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carbon Modal Implementation -->
+    <div id="contact-modal" class="fixed inset-0 z-[2000] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/70" onclick="toggleModal(false)"></div>
+        <div class="cds-modal-container flex flex-col">
+            <div class="p-4 border-b border-[#393939] flex justify-between items-center">
+                <div>
+                    <span class="label-01 m-0">INQUIRY</span>
+                    <h3 class="text-lg">Establish Connection</h3>
+                </div>
+                <button onclick="toggleModal(false)" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="p-6">
+                <form class="space-y-6">
+                    <div>
+                        <label class="label-01">FULL NAME / ENTITY</label>
+                        <input type="text" class="w-full bg-[#393939] border-b border-gray-500 p-3 text-sm focus:outline-none focus:border-blue-400 transition-colors">
+                    </div>
+                    <div>
+                        <label class="label-01">SUBJECT OF RESEARCH</label>
+                        <select class="w-full bg-[#393939] border-b border-gray-500 p-3 text-sm focus:outline-none focus:border-blue-400 transition-colors">
+                            <option>Vulnerability Disclosure</option>
+                            <option>Collaboration Request</option>
+                            <option>Privacy Tooling Audit</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="label-01">MESSAGE</label>
+                        <textarea rows="4" class="w-full bg-[#393939] border-b border-gray-500 p-3 text-sm focus:outline-none focus:border-blue-400 transition-colors"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="flex mt-auto border-t border-[#393939]">
+                <button onclick="toggleModal(false)" class="flex-1 cds-btn-ghost hover:bg-[#393939] text-white">Cancel</button>
+                <button class="flex-1 cds-btn-primary">Submit request</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(show) {
+            const modal = document.getElementById('contact-modal');
+            if(show) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Smooth reveal logic for Carbon aesthetics
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
